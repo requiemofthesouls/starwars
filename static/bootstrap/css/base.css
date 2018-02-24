@@ -1,0 +1,67 @@
+body {
+    font-family: "Trajan Sans Pro";
+    font-size: 15px;
+    color: black;
+
+
+    -webkit-font-smoothing: antialiased; /* Сглаживание при зуме или на мобильных устройствах */
+    -webkit-overflow-scrolling: touch; /* Скроллинг касанием */
+
+    margin-top: 10px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: black;
+    font-family: "Trajan Sans Pro Semibold";
+}
+
+p {
+    line-height: 28px;
+    margin-bottom: 25px;
+    color: white;
+}
+
+.navbar-header .navbar-collapse{
+    background-color: white;
+}
+
+
+.navbar-default .navbar-nav>li>a {
+    color: black !important;
+}
+
+a:hover, a:focus {
+    text-decoration: none;
+    outline: 0;
+}
+
+#logo {
+    width: 100px;
+    height: 100px;
+}
+
+
+
+.bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    min-width: 100%;
+    height: 200px;
+
+    z-index: -111;
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+
+    padding: 0 0 0 0 !important;
+
+
+}
+
+
+#content-main {
+    margin-top: 70px;
+}
