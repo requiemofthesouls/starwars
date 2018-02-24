@@ -1,70 +1,96 @@
 <!DOCTYPE html>
 {% load staticfiles %}
-<html lang="ru">
+<html lang="ru-en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Star Wars</title>
-    <link rel="stylesheet" href="{% static "bootstrap/css/bootstrap.min.css" %}">
-    <link rel="stylesheet" href="{% static "bootstrap/css/bootstrap-theme.css" %}">
-    <link rel="stylesheet" href="{% static "bootstrap/css/fontawesome.min.css" %}">
-    <link rel="stylesheet" href="{% static "bootstrap/css/base.css" %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static "bootstrap/css/main.css" %}">
 </head>
 <body>
-    <!-- Классы navbar и navbar-default (базовые классы меню) -->
-    <nav class="navbar navbar-default navbar-fixed-top">
-      <!-- Контейнер (определяет ширину Navbar) -->
-        <div class="container-fluid">
-        <!-- Заголовок -->
-            <div class="navbar-header">
-          <!-- Кнопка «Гамбургер» отображается только в мобильном виде (предназначена для открытия основного содержимого Navbar) -->
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <!-- Бренд или название сайта (отображается в левой части меню) -->
-                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAM6SURBVGhD7ZhL6E5BGIc/dxEiYiG5liQWhDVFkRALsSChFLIgZGFn45oFpdxSFkKJckmUlSILK4qk5BK5y/3y/HR+9Zq+c77TZyXz1JNv3pkzzsyZM/OefyOTyWQymUwmk8kEpuFtfNmGy1CMwrRuJkbWYdpGPsZzOA7bphO+wJ9tugrFZkzrjmFkE6Ztou9xJLZFP0w7fIr3Ez+j658UMbkYxU2Mfcg32B1NHMgzdB/fipjci21zGt2RbrIDpmjpuc0sBQLD0HVf8VYoz0UTB7IFJxReLWLyPLbNENRjdWcLMaVqIOvRdZdQT8nl42haLS25A/8KzZA7e479MVI1kOvouo+oJeXyO+yBotVAtNw0qbVYhCubeBRjp/swUjaQwfgD47Wp81HEgTwIv+0ejPekey3lIaYdNFPbYaRsINpSHX+FfoEfFTF5AkUciJafXmyXm6l7LaXOQPTCzsZI2UCuoeMLFCjohR9Qcf3bE+NAPNtb0bHUyoFo399Y4Rociyk6+NxmhALQETeg43GrFbpZ12ntTwnlMWhmoONRn1GZf4Kl6Ec3SAFQTqSyl9QkdJupCgTiEpOTMaVs+S7B4ZiiHGstpu0rl9Yu9Muki4V2GZUP/S79edLPUaBgAMZ0Qqa7m6jaUJTqxBuch9pcmrWtfNk1g254BSeGsrbPPujd5jV2Q7Mc3dbqxvpipNXOqBsfjSKmJ6mVA1Ee5cNIs3uw+G0PhN9HMHIBXReTSKfyJg7Eh5uewtsiJlejOIWOSSWftQ5EsR19YXoqfw+/43mhWf+Crov51UWMxIHoMJRnMC4hvatCW3nM83x41iIupzL1wdMVjf5j12kJKjfzoHWDMTdrtbRUrwPS6Om4ThObbjCV3MPY+Y2krCUXOYuxPnUFmqqBKMUfipHOqOTSbe5gnMRKtqEvVCeaBZfldDS98RPG+tTLaOJAlJbHdurH+ZjVh1xsI/X5XYvx6ItOotINpdEqK43vgiZ+X2hG/TJKtVVcG8dAFHEgQlmty3VUX+lTq0Q7hN4Ff67uR5XTz83D6D8U+CU1uzGtU4LpmNBOuRP1twHHy7yLOjgzmUwmk8lkMpn/lkbjF8jyBSyUOJFXAAAAAElFTkSuQmCC">        </div>
-            <!-- Основная часть меню (может содержать ссылки, формы и другие элементы) -->
-            <div class="collapse navbar-collapse" id="navbar-main">
-            <!-- Содержимое основной части -->
-                <ul class="nav navbar-nav">
-                    <li class=""><a href="#">Фильмы</a></li>
-                    <li><a href="#">Lore</a></li>
-                    <li><a href="#">Статьи</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
+    <div class="d-flex flex-row flex-md-row align-items-center p-2 pl-3 pr-3 mb-0 bg-light border-bottom box-shadow svg-logo">
+        <img class="my-0 mx-0 mr-auto" src="{% static "images/logo.png" %}" alt="logo" height="55" width="55">
 
-                    <!-- Выпадающий список -->
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Запросы <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="imperial_crushers/">Имперские разрушители</a></li>
-                            <li><a href="long_ships/">Длинные корабли</a></li>
-                            <li><a href="#">Количество</a></li>
-                            <li><a href="#">Длинные серии</a></li>
-                            <li><a href="#">Что отсутствует у республики</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">Список всех кораблей</a></li>
-                        </ul>
-                    </li>
-                </ul>
+        <a class="btn btn-outline-primary" href="#">Войти</a>
+    </div>
+
+    <header class="header d-flex flex-column justify-content-center align-items-center">
+        <div class="container">
+            <h1 class="d-none d-sm-block display-1 text-white text-center">Welcome!</h1>
+            <p class="d-none d-sm-block lead text-center text-white">
+                Check out for the StarWars ships here!
+            </p>
+
+            <h1 class="display-4 text-white text-center d-block d-sm-none">Welcome!</h1>
+            <p class="lead text-center text-white d-block d-sm-none">Check out for the StarWars ships here!</p>
+
+        </div>
+    </header>
+
+
+    <section class="secondary-content bg-white mt-4">
+        <div class="container">
+            <div class="d-flex flex-row justify-content-center align-items-stretch">
+                <div class="p-2">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22286%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20286%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_161c8d3bb58%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A14pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_161c8d3bb58%22%3E%3Crect%20width%3D%22286%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2299.421875%22%20y%3D%2296.2390625%22%3EImage%20cap%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="Card image cap">
+                        <div class="card-body text-center">
+                            <a href="imperial_crushers/" class="card-text">
+                                Imperial crushers
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-2">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22286%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20286%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_161c8d3bb58%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A14pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_161c8d3bb58%22%3E%3Crect%20width%3D%22286%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2299.421875%22%20y%3D%2296.2390625%22%3EImage%20cap%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="Card image cap">
+                        <div class="card-body text-center">
+                            <a href="ships/" class="card-text">
+                                All Ships
+                            </a>
+                        </div>
+                    </div></div>
+                <div class="p-2">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22286%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20286%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_161c8d3bb58%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A14pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_161c8d3bb58%22%3E%3Crect%20width%3D%22286%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2299.421875%22%20y%3D%2296.2390625%22%3EImage%20cap%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="Card image cap">
+                        <div class="card-body text-center">
+                            <a href="long_ships/" class="card-text">
+                                Long ships
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
-      </div>
-    </nav>
-
-    <section class="main">
-        <div class="container-fluid bg hidden-xs"> <!-- Найти фон для маленьких устройств -->
-            <img src="{% static "images/darkness-bg-bf.jpg" %}" alt="background">
+            <div class="d-flex flex-row justify-content-center align-items-stretch">
+                <div class="p-2">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22286%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20286%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_161c8d3bb58%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A14pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_161c8d3bb58%22%3E%3Crect%20width%3D%22286%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2299.421875%22%20y%3D%2296.2390625%22%3EImage%20cap%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="Card image cap">
+                        <div class="card-body">
+                            <p href="long_ships/" class="card-text">
+                                Text expample
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-2">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22286%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20286%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_161c8d3bb58%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A14pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_161c8d3bb58%22%3E%3Crect%20width%3D%22286%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2299.421875%22%20y%3D%2296.2390625%22%3EImage%20cap%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="Card image cap">
+                        <div class="card-body">
+                            <p class="card-text">
+                                Text example
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
 
-    <div class="container" id="content-main">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci deleniti earum inventore nisi recusandae, reprehenderit sed tenetur vel voluptas! Alias aspernatur aut blanditiis consequatur corporis dolor doloribus est, ex explicabo facilis harum impedit ipsum laborum modi molestias neque nesciunt nulla numquam, obcaecati officiis pariatur provident qui quis sequi tenetur vero voluptate. Accusantium ad aliquid aut culpa dicta enim maxime, nemo recusandae sit. Dicta eaque explicabo id ipsa molestiae recusandae temporibus voluptas. Autem doloremque, enim eos illo incidunt, ipsum itaque, libero magni nobis nulla praesentium rem sapiente sequi temporibus tenetur! Aperiam dolores ea eligendi excepturi obcaecati porro similique tempore temporibus ut voluptatem! At autem consequuntur cupiditate distinctio ipsum iste nemo tempore ut voluptatem? Ab accusantium aliquid architecto assumenda at autem, consectetur consequatur cum debitis deserunt dicta eum ex explicabo fuga impedit, itaque, laborum laudantium nihil obcaecati odit omnis optio pariatur placeat quibusdam repudiandae sequi sunt tempore totam ut voluptas. Adipisci aliquam consectetur, dolor ducimus eaque facilis placeat veritatis voluptatibus? Aliquam, cumque harum nisi odio quasi quos totam. Deserunt dolorem enim maxime omnis perspiciatis! Adipisci asperiores aut ducimus ea eligendi, fugiat harum hic iure nostrum numquam odio possimus rem, reprehenderit, velit veniam! Asperiores culpa doloremque ipsum omnis rem? Alias, incidunt laborum magni qui quibusdam quisquam repellendus suscipit vero? Accusamus ad adipisci blanditiis commodi consequuntur deserunt exercitationem harum hic id in incidunt iste nostrum officia omnis perspiciatis porro, praesentium quas quos repellendus rerum sit soluta temporibus totam veritatis vero vitae voluptas voluptatem! Adipisci assumenda at cum error eum, facilis, fugiat in minus natus odit omnis optio porro recusandae rem sint tempore vel velit voluptatum? Deleniti esse hic nemo officiis provident ratione sunt suscipit ullam voluptates voluptatibus. Ab cumque distinctio, dolores facilis inventore laborum, maiores obcaecati qui quia quod ratione recusandae, rem reprehenderit sed voluptates? Assumenda dolor et fuga id iure minima minus odit perferendis soluta suscipit? At dolor facere ipsam minus mollitia neque unde voluptas voluptatum! A animi atque corporis cum dicta esse et harum illum impedit iste minus molestias, necessitatibus nesciunt non nostrum odio praesentium totam ullam unde ut? Accusamus consectetur enim neque rerum? Accusamus aliquam assumenda cum delectus dolor iure labore laborum natus, nemo pariatur praesentium ratione repellendus, voluptas! Alias aut dolore eaque hic nostrum quibusdam, repudiandae suscipit voluptas. A autem dolore dolorum earum hic illo iure magni nisi omnis possimus quas quis, quisquam repellendus ullam veniam voluptatem voluptatibus. Architecto deserunt dicta dolor excepturi, harum ipsam iste nulla optio reiciendis sed similique sint, suscipit tempora veniam, veritatis. Accusamus alias aliquam at consequuntur corporis cum distinctio doloremque doloribus ducimus eos error eveniet excepturi exercitationem expedita explicabo facilis harum id laborum minus molestias necessitatibus neque nihil, non nulla pariatur perspiciatis quam quasi quia quod repellendus repudiandae sed sequi ullam, veniam veritatis voluptate voluptatem. Distinctio eius facere harum molestiae provident quaerat qui quibusdam rem? Aperiam beatae eaque eveniet expedita facilis incidunt natus nisi nobis nulla, pariatur, perferendis perspiciatis possimus quidem reiciendis voluptates? Ab accusantium alias aliquam asperiores aspernatur aut, cum cumque cupiditate, dignissimos dolores eius enim eos exercitationem expedita explicabo ipsa, ipsam iste iure maiores maxime molestias mollitia nemo nihil non nulla officiis porro quas quo quod repellendus rerum sapiente sint tempore? Ea eius illum ipsam, ipsum labore laborum obcaecati perspiciatis possimus quisquam saepe temporibus unde vitae. Aperiam dolore facere ipsa ipsam, iste, nostrum porro saepe, temporibus totam ullam voluptatem voluptatum. Animi commodi consequuntur culpa dolor ea eligendi eos facilis in iure labore maiores nihil, nulla perspiciatis provident quidem, quo quos ratione repellendus sapiente voluptate. Accusantium alias aliquam, delectus ea harum molestias perspiciatis sint tempore temporibus velit. Ab adipisci autem dolores illo ipsa iusto maiores nisi nostrum porro quae quaerat repellat, sapiente vel vero voluptatem? Architecto assumenda aut autem eligendi eveniet iste, libero nam neque nesciunt non, pariatur porro qui quod recusandae rem vitae, voluptas! Accusamus ad consequuntur error fuga impedit ipsa porro quaerat tempora. Atque cum, illum laudantium nostrum quo sequi. Consequuntur fugiat odio optio provident. At doloribus expedita fugiat illo itaque, odit omnis veritatis? Aliquam consequuntur culpa cumque deleniti dicta dignissimos dolores est eum explicabo facilis fugit hic id impedit itaque laboriosam libero maiores maxime minus, neque nesciunt nobis nulla obcaecati odio perferendis provident quidem quo quod quos ratione reiciendis repudiandae rerum tempore unde ut velit voluptatibus voluptatum. Aperiam minima odio sunt. Dolore eveniet in quas quo veritatis. Aliquam asperiores dolores fugit, iure labore laudantium magnam officiis pariatur qui ratione sapiente, sint ullam voluptatum. Ab ad amet aspernatur consequatur consequuntur dicta impedit incidunt ipsam iure laudantium modi, obcaecati omnis optio sapiente soluta. Aliquid architecto aspernatur consequuntur dicta eos est et eveniet fuga itaque iure iusto, laboriosam laudantium minima minus nisi obcaecati officiis provident ratione reiciendis rem repellendus repudiandae, sed sit, soluta totam ullam velit! Delectus ex impedit quae quod repellat voluptate voluptatibus! A ab aliquid at aut delectus ducimus ea error, facere ipsa labore libero nisi nulla quaerat qui quia quis vel. Fugit harum magnam, maiores porro quae quis repellat. Cupiditate ipsa mollitia odit reiciendis sequi? Dolorem eum eveniet inventore quasi quos vel. Ab accusamus consectetur doloremque ea, eligendi fugiat labore minima mollitia nostrum quaerat reprehenderit tempora velit voluptatum. Accusantium aliquid animi aperiam autem, commodi consequuntur corporis cumque delectus distinctio dolorem ea excepturi exercitationem explicabo itaque iusto magni minus molestiae perferendis placeat, porro praesentium quaerat quasi quibusdam quod ratione repellendus rerum sint tempore temporibus totam velit vitae voluptatem voluptates? Ad adipisci asperiores atque aut beatae cupiditate debitis ducimus eligendi est ex explicabo in iusto, labore laudantium magnam minus nihil nisi nobis odio omnis possimus provident quibusdam recusandae reprehenderit repudiandae saepe sit tempore ut velit voluptatem. Ab ad animi at consectetur cum deleniti dignissimos eveniet facilis inventore iure maxime modi nihil obcaecati ratione saepe, sit tenetur! Aliquid at atque corporis deleniti dolores earum eum expedita incidunt labore laboriosam magnam molestias, pariatur quaerat quasi ratione repudiandae sunt tenetur voluptatem voluptates voluptatum. Accusantium, animi corporis dolor dolorum ea fugit harum, itaque iusto laboriosam laborum minus modi necessitatibus quam quos, reiciendis repudiandae sint tenetur veniam voluptas voluptate? Ad adipisci at beatae culpa cumque delectus dicta dolorem ducimus, eligendi enim eos eveniet fuga fugit illo impedit inventore libero magnam maiores nam natus nulla numquam omnis placeat porro provident quae quia quidem saepe sapiente sit totam ullam voluptate voluptatum? Aliquam blanditiis dolorum ea eaque explicabo illo laboriosam nobis optio provident vero. Animi, dignissimos ducimus. A, assumenda consequatur cum cumque deleniti dolores eaque earum eos facere fuga in ipsam, iusto labore laborum laudantium magnam non perferendis, praesentium quaerat quasi ratione rem repellat reprehenderit sequi velit voluptate voluptatum. Beatae et explicabo fuga nulla quod ratione vero! Animi corporis, culpa cum debitis dolores ea est eum id ipsa ipsam itaque laboriosam magnam magni maxime minus modi molestiae nihil possimus quas quasi repudiandae rerum sit vel? Adipisci aliquid amet animi architecto aut corporis cum cumque debitis dolores ducimus ea eaque enim eveniet fuga fugit hic id, magnam molestias obcaecati officiis quaerat quam saepe, similique sint sit ullam veritatis vero vitae voluptas voluptatibus? Facilis molestias mollitia, non pariatur quisquam quo sed! Debitis, distinctio eum facilis hic laudantium maiores perspiciatis placeat quibusdam sint veniam. Autem consectetur cum ipsa labore laudantium nihil officia, quaerat sunt vel vero. Aperiam blanditiis dolorem officia porro sint! Beatae debitis dolor dolorum fuga sint! Commodi earum exercitationem explicabo itaque minima minus nisi porro quaerat, ratione rem rerum soluta tempore veritatis?</p>
-    </div>
-    <!-- Latest compiled and minified JavaScript -->
-    <script type="text/javascript" src="http://code.jquery.com/jquery-3.3.1.min.js"  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script src="{% static "bootstrap/js/bootstrap.js" %}"></script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>

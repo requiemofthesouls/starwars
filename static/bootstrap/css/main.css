@@ -1,0 +1,9 @@
+
+
+.header {
+    max-width: 100%;
+    height: 700px;
+    background: url("../../images/darkness-bg-bf.jpg") no-repeat center;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
