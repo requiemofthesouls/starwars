@@ -23,9 +23,12 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
     path('', views.index, name='index'),
     path('ships/', include('lists.urls')),
     path('imperial_crushers/', views.crushers),
     path('long_ships/', views.long),
+    path('imperial_ships/', views.count),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

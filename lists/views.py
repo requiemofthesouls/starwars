@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from lists.models import *
-from django.db.models import Max
+from collections import Counter
 
 # Create your views here.
 
@@ -28,4 +28,8 @@ def long(request):
 
 
 def count(request):
+
+    context_dict = {'types': types}
+    return render(request, 'counted.html', context_dict)
     pass
+

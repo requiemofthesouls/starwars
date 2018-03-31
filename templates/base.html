@@ -1,0 +1,51 @@
+{% load staticfiles %}
+<html lang="ru-ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>
+    STAR WARS -
+        {% block title %}
+        {% endblock %}
+    </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    {% block static %}
+        <link rel="stylesheet" href="{% static "bootstrap/css/main.css" %}">
+    {% endblock %}
+</head>
+<body>
+    {% block header_block %}
+         <div class="d-flex flex-row flex-md-row align-items-center p-2 pl-3 pr-3 mb-0 bg-light border-bottom box-shadow svg-logo">
+             <img class="my-0 mx-0 mr-auto" src="{% static "images/logo.png" %}" alt="logo" height="55" width="55">
+             <a class="btn btn-outline-primary" href="#">Войти</a>
+        </div>
+    {% endblock %}
+
+    {% block body_block %}
+
+
+    {% endblock %}
+
+    {% block footer %}
+        <footer class="footer bg-light">
+            <div class="container-fluid border-top">
+                <div class="row p-4">
+                    <div class="col-xl-3">
+                        <a class="btn btn-outline-primary" href="{% url 'index' %}">На главную</a>
+                    </div>
+                    <div class="col-xl-3"></div>
+                    <div class="col-xl-3"></div>
+                    <div class="col-xl-3 text-right">
+                        <strong class="text-muted lead">Designed with bootstrap 4.</strong>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    {% endblock %}
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>
