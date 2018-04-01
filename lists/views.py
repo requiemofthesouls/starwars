@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from lists.models import *
-from collections import Counter
+from django.db.models import Prefetch
 
 # Create your views here.
 
@@ -28,8 +28,20 @@ def long(request):
 
 
 def count(request):
+    types = Type.objects.filter(
+        ship__side='Империя'
+    ).prefetch_related(
+        Prefetch('ship_set', queryset=Ship.objects.filter(side='Империя'))
+    ).distinct()
+    t = []
+    c = []
+    for type in types:
+        qs = type.ship_set.all()
+        t.append(type.type)
+        c.append(len(qs))
 
-    context_dict = {'types': types}
+    context_dict = {'types': t, 'counted': c}
+    #  Придумать как извлечь эти данные в шаблон
     return render(request, 'counted.html', context_dict)
-    pass
+
 

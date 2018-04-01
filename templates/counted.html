@@ -13,28 +13,40 @@
 </head>
 <body>
 {% block body_block %}
-    {% if types %}
+{#    {% if context_dict  %}#}
     <table class="table table-hover table-bordered">
         <thead>
             <tr class="active">
                 <th>Тип</th>
-{#                <th>Количество</th>#}
-{#                <th>Сторона</th>#}
+                <th>Количество</th>
             </tr>
         </thead>
-        {% for type in types %}
         <tbody>
             <tr>
-                <td>{{ type }}</td>
-{#                <td>{{ ship.name }}</td>#}
-{#                <td>{{ ship.side }}</td>#}
+                <td>
+                    {% for type in types %}
+                    <ul>
+                        <li>{{ type }}</li>
+                    </ul>
+                    {% endfor %}
+
+                </td>
+                <td>
+                    {% for foo in counted %}
+                    <ul>
+                        <li>{{ foo }}</li>
+                    </ul>
+                    {% endfor %}
+
+                </td>
             </tr>
         </tbody>
-        {% endfor %}
+
     </table>
-    {% else %}
-        <p>There are no ships!</p>
-    {% endif %}
+
+{#    {% else %}#}
+{#        <p>There are no ships!</p>#}
+{#    {% endif %}#}
 {% endblock %}
 </body>
 </html>
