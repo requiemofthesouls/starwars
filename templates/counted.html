@@ -13,7 +13,7 @@
 </head>
 <body>
 {% block body_block %}
-{#    {% if context_dict  %}#}
+    {% if table  %}
     <table class="table table-hover table-bordered">
         <thead>
             <tr class="active">
@@ -22,31 +22,17 @@
             </tr>
         </thead>
         <tbody>
+           {% for tr in table %}
             <tr>
-                <td>
-                    {% for type in types %}
-                    <ul>
-                        <li>{{ type }}</li>
-                    </ul>
-                    {% endfor %}
-
-                </td>
-                <td>
-                    {% for foo in counted %}
-                    <ul>
-                        <li>{{ foo }}</li>
-                    </ul>
-                    {% endfor %}
-
-                </td>
+                <td>{{ tr.0 }}</td>
+                <td>{{ tr.1 }}</td>
             </tr>
+            {% endfor %}
         </tbody>
-
     </table>
-
-{#    {% else %}#}
-{#        <p>There are no ships!</p>#}
-{#    {% endif %}#}
+    {% else %}
+        <h1 class="display-1">There is no ships!</h1>
+    {% endif %}
 {% endblock %}
 </body>
 </html>

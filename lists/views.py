@@ -39,9 +39,8 @@ def count(request):
         qs = type.ship_set.all()
         t.append(type.type)
         c.append(len(qs))
-
-    context_dict = {'types': t, 'counted': c}
-    #  Придумать как извлечь эти данные в шаблон
+    table = zip(t, c)
+    context_dict = {'table': table}
     return render(request, 'counted.html', context_dict)
 
 
