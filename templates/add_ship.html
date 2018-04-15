@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}
+            Add a ship
+        {% endblock %}
+    </title>
+</head>
+<body>
+    {% block body_block %}
+        <h1 class="display-3 ml-4">Добавить корабль.</h1>
+        <div class="container mt-4">
+            <form action="{% url 'add_ship' %}" method="post" id="ship_form">
+                {% csrf_token %}
+                {% for field in form %}
+                <div class="form-group">
+                    <label for="{{ field.id_for_label }}">{{ field.help_text }}</label>
+                    {{ field }}
+                </div>
+                    {% for error in field.errors %}
+                        <p class="help is-danger"></p>
+                    {% endfor %}
+
+                {% endfor %}
+                <button type="submit" class="btn btn-primary mb-4" name="submit">Создать</button>
+            </form>
+        </div>
+    {% endblock %}
+</body>
+</html>

@@ -25,10 +25,17 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     path('', views.index, name='index'),
-    path('ships/', include('lists.urls')),
-    path('imperial_crushers/', views.crushers),
-    path('long_ships/', views.long),
-    path('imperial_ships/', views.count),
+
+    path('ships/', include('lists.urls'), name='ships'),
+    path('imperial_crushers/', views.crushers, name='imperial_crushers'),
+    path('long_ships/', views.long, name='long_ships'),
+    path('imperial_ships/', views.count, name='imperial_ships'),
+
+    path('add_type/', views.add_type, name='add_type'),
+    path('add_series/', views.add_series, name='add_series'),
+    path('add_ship/', views.add_ship, name='add_ship'),
+
+    path('registration/', views.register, name='registration'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

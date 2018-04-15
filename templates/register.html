@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}
+            Registration
+        {% endblock %}
+    </title>
+</head>
+<body>
+{% block body_block %}
+    <h1 class="display-3 ml-4">Регистрация</h1>
+    {% if registred %}
+        <p class="text-info">Спасибо за регистрацию</p>
+        <a href="{% url 'index' %}" class="btn-outline-secondary">Вернуться на главную</a><br>
+    {% else %}
+        <div class="container mt-4">
+            <form action="{% url 'registration' %}" method="post" id="registration_form">
+                {% csrf_token %}
+                {% for field in user_form %}
+                <div class="form-group">
+                    <label for="{{ field.id_for_label }}">{{ field.help_text }}</label>
+                    {{ field }}
+                </div>
+                    {% for error in field.errors %}
+                        <p class="help is-danger"></p>
+                    {% endfor %}
+                {% endfor %}
+                <button type="submit" class="btn btn-outline-primary mb-4" name="submit">Зарегистрироваться</button>
+            </form>
+        </div>
+    {% endif %}
+{% endblock %}
+</body>
+</html>
