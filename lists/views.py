@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from lists.forms import *
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponse
 from django.db.models import Prefetch
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -62,7 +62,7 @@ def add_ship(request):
         if form.is_valid():
             ship = form.save(commit=True)
             print('Created ship', ship)
-            return HttpResponseRedirect(reverse('index'))
+            return redirect('/')
         else:
             print(form.errors)
 
@@ -78,7 +78,7 @@ def add_type(request):
         if form.is_valid():
             type = form.save(commit=True)
             print('Created type', type)
-            return HttpResponseRedirect(reverse('index'))
+            return redirect('/')
         else:
             print(form.errors)
 
@@ -94,7 +94,7 @@ def add_series(request):
         if form.is_valid():
             series = form.save(commit=True)
             print('Created series', series)
-            return HttpResponseRedirect(reverse('index'))
+            return redirect('/')
         else:
             print(form.errors)
 
