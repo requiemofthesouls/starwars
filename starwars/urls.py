@@ -36,6 +36,8 @@ urlpatterns = [
     path('add_ship/', views.add_ship, name='add_ship'),
 
     path('registration/', views.register, name='registration'),
+    path('log_in/', views.log_in, name='log_in'),
+    path('log_out/', views.log_out, name='log_out')
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

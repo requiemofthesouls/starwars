@@ -1,8 +1,35 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from lists.forms import *
+from django.http import HttpResponseRedirect, HttpResponse
 from django.db.models import Prefetch
-
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 # Create your views here.
+
+
+@login_required
+def log_out(request):
+    logout(request)
+    return redirect('/')
+
+
+def log_in(request):
+    context_dict = {}
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            if user.is_active:
+                login(request, user)
+                return redirect('/')
+            else:
+                return HttpResponse('Your account is disabled.')
+        else:
+            print("Invalid login details: {0}, {1}".format(username, password))
+            return HttpResponse('Invalid login details supplied.')
+    else:
+        return render(request, 'log_in.html', context_dict)
 
 
 def register(request):
@@ -16,6 +43,7 @@ def register(request):
             user.set_password(user.password)
             user.save()
             registered = True
+            return redirect('/')
         else:
             print(user_form.errors)
     else:
@@ -34,7 +62,7 @@ def add_ship(request):
         if form.is_valid():
             ship = form.save(commit=True)
             print('Created ship', ship)
-            return index(request)
+            return HttpResponseRedirect(reverse('index'))
         else:
             print(form.errors)
 
@@ -50,7 +78,7 @@ def add_type(request):
         if form.is_valid():
             type = form.save(commit=True)
             print('Created type', type)
-            return index(request)
+            return HttpResponseRedirect(reverse('index'))
         else:
             print(form.errors)
 
@@ -66,7 +94,7 @@ def add_series(request):
         if form.is_valid():
             series = form.save(commit=True)
             print('Created series', series)
-            return index(request)
+            return HttpResponseRedirect(reverse('index'))
         else:
             print(form.errors)
 

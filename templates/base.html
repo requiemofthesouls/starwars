@@ -1,5 +1,5 @@
 {% load staticfiles %}
-<html lang="ru-ru">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -19,6 +19,7 @@
          <div class="d-flex flex-row flex-md-row align-items-center p-2 pl-3 pr-3 mb-0 bg-light border-bottom box-shadow svg-logo">
              <img class="my-0 mx-0 mr-auto" src="{% static "images/logo.png" %}" alt="logo" height="55" width="55">
              <ul class="nav mr-4">
+             {% if user.is_authenticated %}
                  <li class="nav-item dropdown">
                      <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                          Добавить...
@@ -31,7 +32,10 @@
                      </div>
                  </li>
              </ul>
-             <a class="btn btn-outline-primary" href="{% url 'registration' %}">Войти</a>
+             <a class="btn btn-outline-primary" href="{% url 'log_out' %}">Выйти</a>
+             {% else %}
+                 <a class="btn btn-outline-primary" href="{% url 'log_in' %}">Войти</a>
+             {% endif %}
         </div>
     {% endblock %}
 

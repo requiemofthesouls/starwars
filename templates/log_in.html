@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}
+            Log In
+        {% endblock %}
+    </title>
+</head>
+<body>
+{% block body_block %}
+    <h1 class="display-3 ml-4">Вход</h1>
+    <div class="container mt-4">
+        <form action="{% url 'log_in' %}" method="post" id="login_form">
+            {% csrf_token %}
+            <label for="username">Имя пользователя: </label>
+            <input class="form-control" type="text" id="username" name="username" value="" size="50"> <br>
+            <label for="pwd">Пароль: </label>
+            <input class="form-control" type="password" id="pwd" name="password" value="" size="50"> <br>
+            <button class="btn btn-outline-primary" type="submit">Войти</button>
+        </form>
+    </div>
+{% endblock %}
+</body>
+</html>
