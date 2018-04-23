@@ -53,6 +53,7 @@ def register(request):
                                              'registered': registered})
 
 
+@login_required(login_url='/log_in/')
 def add_ship(request):
     form = ShipForm()
 
@@ -69,6 +70,7 @@ def add_ship(request):
     return render(request, 'add_ship.html', {'form': form})
 
 
+@login_required(login_url='/log_in/')
 def add_type(request):
     form = TypeForm()
 
@@ -85,6 +87,7 @@ def add_type(request):
     return render(request, 'add_type.html', {'form': form})
 
 
+@login_required(login_url='/log_in/')
 def add_series(request):
     form = SeriesForm()
 
