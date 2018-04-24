@@ -30,6 +30,7 @@ urlpatterns = [
     path('imperial_crushers/', views.crushers, name='imperial_crushers'),
     path('long_ships/', views.long, name='long_ships'),
     path('imperial_ships/', views.count, name='imperial_ships'),
+    path('the_most_long_ships/', views.most_long_ships, name='the_most_long_ships'),
 
     path('add_type/', views.add_type, name='add_type'),
     path('add_series/', views.add_series, name='add_series'),

@@ -105,7 +105,7 @@ def add_series(request):
 
 
 def ships(request):
-    ships = Ship.objects.all()
+    ships = Ship.objects.order_by('type')
     context_dict = {'ships': ships}
     return render(request, 'lists.html', context_dict)
 
@@ -143,3 +143,23 @@ def count(request):
     return render(request, 'counted.html', context_dict)
 
 
+def most_long_ships(request):
+    types = Type.objects.order_by('type')
+    s = []
+    for type in types:
+        s.append(Ship.objects.filter(type=type).latest('lenght'))
+    return render(request, 'the_most_long_ships.html', {'ships': s})
+
+
+""" Последний запросик
+def missing(request):
+    types = Type.objects.order_by('type')
+    s = []
+    for type in types:
+        s.append(Ship.objects.filter(type=type))
+    for i in range(len(s)):
+        for j in range(len(s[i])):
+            if s[i][j].type:
+            return render(request, 'missing.html', context_dict)
+    pass
+"""

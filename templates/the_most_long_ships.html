@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}
+        THE MOST LONG SHIPS
+        {% endblock %}
+    </title>
+</head>
+<body>
+{% block body_block %}
+    {% if ships %}
+    <table class="table table-hover table-bordered">
+        <thead>
+            <tr class="active">
+                <th>Тип</th>
+                <th>Серия</th>
+                <th>Длина</th>
+                <th>Название</th>
+                <th>Сторона</th>
+            </tr>
+        </thead>
+        {% for ship in ships %}
+        <tbody>
+            <tr>
+                <td>{{ ship.type }}</td>
+                <td>{{ ship.series }}</td>
+                <td>{{ ship.lenght }}</td>
+                <td>{{ ship.name }}</td>
+                <td>{{ ship.side }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <p>There are no ships!</p>
+    {% endif %}
+{% endblock %}
+</body>
+</html>
